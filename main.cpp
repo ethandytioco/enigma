@@ -1,6 +1,18 @@
 //	author:	Ethan Dy Tioco
 //	desc:	Creating the Enigma machine (M3) with better coding practices than the first attempt
 
+/*	Citations:
+	[1]		Left shift algorithms: https://www.geeksforgeeks.org/array-rotation/
+	[2]		memcpy: http://www.cplusplus.com/reference/cstring/memcpy/
+	[3]		char tolower(): http://www.cplusplus.com/reference/cctype/tolower/
+	[4]		remove non-alphabet characters in string https://www.geeksforgeeks.org/remove-characters-alphabets-string/
+	[5?]		check to see if string is comprised of numbers only https://stackoverflow.com/questions/2844817/how-do-i-check-if-a-c-string-is-an-int/37864920
+	
+	Knowledge sources:
+	[i]		Rotor details, turnover: https://en.wikipedia.org/wiki/Enigma_rotor_details
+	[ii]	How enigma machines work: https://www.youtube.com/watch?v=G2_Q9FoD-oQ
+	[iii]	Ring and ground settings: http://users.telenet.be/d.rijmenants/en/enigmatech.htm
+*/
 #include <iostream>
 #include <string>
 #include <cstring>			// <-- memcpy(destination*, source*, sizeInBytes)
@@ -13,29 +25,9 @@
 using namespace std;
 
 int main(){
-	// ----------------------------------------------------------------
-	// Testing Rotor::rotateBy() -> SUCCESS
-	Rotor rotor_i("I", "EKMFLGDQVZNTOWYHXUSPAIBRCJ", 16, 7);
-	rotor_i.printRotor();
-	rotor_i.rotateBy(27);
-	cout << "\nRotated by 27 spaces\n";
-	rotor_i.printRotor();
-	// ----------------------------------------------------------------
+
+	Enigma m3;
+	m3.menu();
 	
-	
-	// ----------------------------------------------------------------
-	Rotor rotor_ii("II", "AJDKSIRUXBLHWTMCQGZNPYFVOE", 4, 14);
-	Rotor rotor_copy = rotor_i;		// copy constructor
-	
-	
-	cout << "\nrotor_copy is now a copy of rotor_i\n";
-	rotor_copy.printRotor();
-	rotor_copy = rotor_ii;			// = Operator
-	
-	
-	cout << "\nrotor_copy = rotor_ii\n";
-	rotor_copy.printRotor();
-	
-	// ----------------------------------------------------------------
 	return 0;
 }
